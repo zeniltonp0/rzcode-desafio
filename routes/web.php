@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('dashboard');
-});
+})->name('dashboard');
 
 Route::middleware('guest')->group(function () {
     Route::get('/register', Register::class)->name('register');
