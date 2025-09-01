@@ -16,6 +16,10 @@
                 <x-password label="Confirmação de senha" wire:model.blur="password_confirmation"/>
             </div>
 
+            <div>
+                <x-link href="{{ route('login') }}" text="Já tem uma conta?" underline wire:navigate/>
+            </div>
+
             <div class="mx-80">
                 <x-button submit>Registrar</x-button>
             </div>
