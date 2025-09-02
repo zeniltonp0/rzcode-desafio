@@ -6,12 +6,17 @@
                     <x-icon name="check-circle" class="w-10 h-10" />
                     <span>Todo List</span>
                 </h1>
-                <p class="text-gray-500 dark:text-gray-400 mt-2">
-                    Organize suas tarefas
-                </p>
             </div>
-            <x-button lg color="primary" icon="plus"/>
+            <div class="flex justify-end">
+                <x-button 
+                    lg 
+                    color="primary" 
+                    icon="plus" 
+                    wire:click="$dispatch('todo::create')">
+                </x-button>
+            </div>
         </div>
-        <livewire:todo.show/>
+        <livewire:todo.show />
+        <livewire:todo.create />
     </div>
 </div>
