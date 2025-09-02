@@ -1,3 +1,3 @@
 <div>
-    dashboard
+    <livewire:todo.index />
 </div>
