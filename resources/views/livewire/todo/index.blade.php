@@ -12,5 +12,6 @@
             </div>
             <x-button lg color="primary" icon="plus"/>
         </div>
+        <livewire:todo.show/>
     </div>
 </div>
