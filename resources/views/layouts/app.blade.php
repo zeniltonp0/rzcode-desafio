@@ -12,7 +12,8 @@
     @livewireStyles
 </head>
 
-<body>
+<body>\
+    <x-toast /> 
     {{ $slot }}
     @livewireScripts
 </body>

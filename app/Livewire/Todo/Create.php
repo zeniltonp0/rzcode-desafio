@@ -5,9 +5,12 @@ namespace App\Livewire\Todo;
 use Livewire\Attributes\On;
 use Livewire\Attributes\Rule;
 use Livewire\Component;
+use TallStackUi\Traits\Interactions;
 
 class Create extends Component
 {
+    use Interactions;
+
     public bool $modal = false;
 
     #[Rule(['required', 'string', 'max:255'])]
@@ -34,7 +37,8 @@ class Create extends Component
             'description' => $this->description,
             'due_date' => $this->due_date,
         ]);
-
+        $this->toast()->success('Tarefa criada!')->send();
+        $this->reset();
         $this->modal = false;
 
         $this->dispatch('task::created');
