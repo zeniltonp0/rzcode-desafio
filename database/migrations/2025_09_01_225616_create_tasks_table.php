@@ -16,8 +16,8 @@ return new class extends Migration
             $table->id();
             $table->foreignIdFor(User::class);
             $table->string('title');
-            $table->text('description');
-            $table->boolean('completed');
+            $table->text('description')->nullable();
+            $table->boolean('completed')->default(false);
             $table->date('due_date');
             $table->timestamps();
             $table->softDeletes();
