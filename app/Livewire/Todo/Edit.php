@@ -2,16 +2,19 @@
 
 namespace App\Livewire\Todo;
 
+use App\Models\Task;
 use Livewire\Attributes\On;
 use Livewire\Attributes\Rule;
 use Livewire\Component;
 use TallStackUi\Traits\Interactions;
 
-class Create extends Component
+class Edit extends Component
 {
     use Interactions;
 
     public bool $modal = false;
+
+    public ?Task $task = null;
 
     #[Rule(['required', 'string', 'max:255'])]
     public ?string $title = null;
@@ -22,30 +25,35 @@ class Create extends Component
     #[Rule(['date'])]
     public ?string $due_date = null;
 
-    #[On('todo::create')]
-    public function open()
+    #[On('todo::edit')]
+    public function open(int $id)
     {
+        $this->task = Task::findOrFail($id);
+        $this->title = $this->task->title;
+        $this->description = $this->task->description;
+        $this->due_date = $this->task->due_date;
         $this->modal = true;
     }
 
-    public function save()
+    public function save(): void
     {
+        if (! $this->task) {
+            return;
+        }
         $this->validate();
 
-        auth()->user()->tasks()->create([
+        $this->task->update([
             'title' => $this->title,
             'description' => $this->description,
             'due_date' => $this->due_date,
         ]);
-        $this->toast()->success('Tarefa criada!')->send();
-        $this->reset();
-        $this->modal = false;
 
-        $this->dispatch('task::created');
+        $this->dispatch('task::updated');
+        $this->modal = false;
     }
 
     public function render()
     {
-        return view('livewire.todo.create');
+        return view('livewire.todo.edit');
     }
 }

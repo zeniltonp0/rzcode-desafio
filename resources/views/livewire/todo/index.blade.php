@@ -18,5 +18,6 @@
         </div>
         <livewire:todo.show />
         <livewire:todo.create />
+        <livewire:todo.edit />
     </div>
 </div>

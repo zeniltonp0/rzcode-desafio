@@ -4,6 +4,16 @@
             <x-card header="{{ $task->title }}">
                 {{ $task->description }}
                 {{ $task->due_date->format('d/m/Y') }}
+                <x-slot:footer>
+                    <div class="flex justify-end gap-x-2">
+                        <x-button.circle
+                            icon="pencil"
+                            color="primary"
+                            flat md
+                            wire:click="$dispatch('todo::edit', { id: {{ $task->id }} })"
+                        />
+                    </div>
+                </x-slot:footer>
             </x-card>
         @endforeach
     </div>
