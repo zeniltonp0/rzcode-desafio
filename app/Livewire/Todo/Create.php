@@ -35,8 +35,9 @@ class Create extends Component
             'due_date' => $this->due_date,
         ]);
 
-        // $this->reset();
         $this->modal = false;
+
+        $this->dispatch('task::created');
     }
 
     public function render()
