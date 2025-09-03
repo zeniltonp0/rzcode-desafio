@@ -47,7 +47,7 @@ class Edit extends Component
             'description' => $this->description,
             'due_date' => $this->due_date,
         ]);
-
+        $this->toast()->success('Tarefa editada!')->send();
         $this->dispatch('task::updated');
         $this->modal = false;
     }
