@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Todo;
 
+use App\Models\Task;
 use Livewire\Attributes\Computed;
 use Livewire\Attributes\On;
 use Livewire\Component;
@@ -9,9 +10,12 @@ use Livewire\WithPagination;
 
 #[On('task::created')]
 #[On('task::updated')]
+#[On('task::deleted')]
 class Show extends Component
 {
     use WithPagination;
+
+    public ?Task $task = null;
 
     #[Computed]
     public function tasks()

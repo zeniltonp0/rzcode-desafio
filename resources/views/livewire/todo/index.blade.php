@@ -19,5 +19,6 @@
         <livewire:todo.show />
         <livewire:todo.create />
         <livewire:todo.edit />
+        <livewire:todo.delete />
     </div>
 </div>

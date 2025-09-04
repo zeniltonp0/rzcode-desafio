@@ -12,6 +12,12 @@
                             flat md
                             wire:click="$dispatch('todo::edit', { id: {{ $task->id }} })"
                         />
+                        <x-button.circle
+                            icon="trash"
+                            color="red"
+                            flat md
+                            wire:click="$dispatch('todo::delete', { id: {{ $task->id }} })"
+                        />
                     </div>
                 </x-slot:footer>
             </x-card>
