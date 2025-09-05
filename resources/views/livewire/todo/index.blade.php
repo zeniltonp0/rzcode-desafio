@@ -7,7 +7,8 @@
                     <span>Todo List</span>
                 </h1>
             </div>
-            <div class="flex justify-end">
+            <div class="flex justify-end space-x-4">
+                <livewire:auth.logout />
                 <x-button 
                     lg 
                     color="primary" 
