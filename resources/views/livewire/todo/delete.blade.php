@@ -1,5 +1,5 @@
 <div>
-    <x-modal title="Apagar uma tarefa" wire center >
+    <x-modal title="Apagar uma tarefa" wire center>
         <p class="text-gray-600 dark:text-gray-400">
             Você tem certeza que deseja apagar a tarefa
             <span class="font-bold">"{{ $task?->title }}"</span>?
@@ -13,4 +13,3 @@
         </x-slot:footer>
     </x-modal>
 </div>
-

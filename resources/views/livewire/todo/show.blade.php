@@ -1,7 +1,7 @@
 <div>
     <div class="space-y-2">
         @foreach ($this->tasks as $task)
-            <x-card header="{{ $task->title }}">
+            <x-card header="{{ $task->title }}" wire:key="{{ $task->id }}">
                 {{ $task->description }}
                 {{ $task->due_date->format('d/m/Y') }}
                 <x-slot:footer>
@@ -17,6 +17,12 @@
                             color="red"
                             flat md
                             wire:click="$dispatch('todo::delete', { id: {{ $task->id }} })"
+                        />
+                        <x-button.circle
+                            icon="check"
+                            color="green"
+                            flat md
+                            wire:click="$dispatch('todo::archive', { id: {{ $task->id }} })"
                         />
                     </div>
                 </x-slot:footer>

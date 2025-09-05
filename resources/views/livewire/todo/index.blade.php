@@ -20,5 +20,6 @@
         <livewire:todo.create />
         <livewire:todo.edit />
         <livewire:todo.delete />
+        <livewire:todo.archive />
     </div>
 </div>

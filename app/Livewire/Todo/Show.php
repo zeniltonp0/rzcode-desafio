@@ -11,6 +11,7 @@ use Livewire\WithPagination;
 #[On('task::created')]
 #[On('task::updated')]
 #[On('task::deleted')]
+#[On('task::archived')]
 class Show extends Component
 {
     use WithPagination;
