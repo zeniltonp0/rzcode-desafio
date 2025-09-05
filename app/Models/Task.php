@@ -21,6 +21,7 @@ class Task extends Model
 
     protected $casts = [
         'due_date' => 'datetime',
+        'completed' => 'boolean',
     ];
 
     public function user(): BelongsTo
