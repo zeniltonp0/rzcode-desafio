@@ -8,6 +8,16 @@ export default defineConfig({
             input: ['resources/css/app.css', 'resources/js/app.js'],
             refresh: true,
         }),
-        tailwindcss(),
+        tailwindcss({
+            config: {
+                content: [
+                    
+                    './resources/views/**/*.blade.php',
+                    './app/Livewire/**/*.php',
+                    './vendor/tallstackui/tallstackui/src/**/*.php',
+                    './vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php',
+                ]
+            }
+        }),
     ],
 });
