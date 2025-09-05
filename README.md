@@ -1,61 +1,106 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Desafio Técnico RZ Code - To-Do List
+ Aplicação de lista de tarefas (To-Do List) desenvolvida como parte do processo seletivo para o teste de Backend da RZ Code.
+ 
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+ ## 🎯 Objetivo
+ A aplicação tem como objetivo permitir que um usuário se registre, faça login e gerencie a sua própria lista de tarefas, podendo **adicionar**, **listar**, **editar**, **concluir**, **apagar** e **restaurar** tarefas.
 
-## About Laravel
+ ## ✨ Diferenciais Implementados
+ Além dos requisitos obrigatórios, este projeto inclui:
+ - **Autenticação Completa:** Sistema de registo e login para garantir que cada utilizador só aceda às suas próprias tarefas.
+   
+ - **Banco de Dados:** Utilização do MySQL para persistência de dados, gerido de forma isolada com Docker.
+   
+ - **Interface Reativa (SPA-like):** A interface foi construída com o stack TALL (TailwindCSS, Alpine.js, Laravel, Livewire) e TallStackUi, proporcionando uma experiência de utilizador fluida e sem recarregamento de página.
+   
+ - **Padrão de Código e Commits:** Utilização do Laravel Pint e Husky para garantir automaticamente o padrão de estilo do código e a formatação das mensagens de commit antes de cada submissão.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+ ## Tecnologias Utilizadas
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+- Backend: Laravel 12, PHP 8.3
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+- Frontend: Livewire 3, TallStackUi, Tailwind CSS, Alpine.js
 
-## Learning Laravel
+- Banco de Dados: MySQL
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+- Ambiente de Desenvolvimento: Docker com Laravel Sail
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+- Qualidade de Commits e Padrão de Código: Husky e Laravel Pint
+  
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## 🚀 Como Rodar a Aplicação
 
-## Laravel Sponsors
+Este projeto utiliza Laravel Sail, a ferramenta oficial do Laravel para gerir um ambiente de desenvolvimento Docker. As instruções de configuração do banco de dados já estão automatizadas.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+### Pré-requisitos
 
-### Premium Partners
+- Docker e Docker Compose instalados na sua máquina.
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+- Composer
 
-## Contributing
+- NPM (Node.js)
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### Passo a passo
 
-## Code of Conduct
+1- Clonar o repositório
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+`
+git clone [URL_DO_SEU_REPOSITÓRIO_AQUI]
+`
 
-## Security Vulnerabilities
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+`
+cd nome-do-projeto
+`
 
-## License
+2- Instalar as dependências do PHP
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+`
+composer install
+`
+
+3- Configurar o Ambiente
+
+- Copie o ficheiro de exemplo .env.example para .env. O Laravel Sail irá ler este ficheiro para configurar o ambiente.
+
+`
+cp .env.example .env
+`
+
+4- Subir os containers Docker com Sail
+
+- Antes de rodar os comandos, no seu terminal, rode:
+  
+  `alias sail='sh $([ -f sail ] && echo sail || echo vendor/bin/sail)'
+  `
+- Esse comando vai permitir que você defina um apelido para os comandos do Sail
+
+- Depois, rode:
+
+  `
+  sail up -d
+  `
+
+5- Gerar a Chave da Aplicação
+
+`
+sail artisan key:generate
+`
+
+6- Instalar Dependências do Frontend
+
+`
+sail npm install
+`
+
+7- Em outro terminal, compilar os assets do frontend
+
+`
+sail npm run dev
+`
+
+8- Executar as Migrations e Popular o Banco
+
+`
+sail artisan migrate:fresh --seed
+`
