@@ -10,8 +10,13 @@
     <div class="space-y-2">
         @foreach ($this->tasks as $task)
             <x-card header="{{ $task->title }}" wire:key="{{ $task->id }}">
-                {{ $task->description }}
-                {{ $task->due_date->format('d/m/Y') }}
+                <p class="text-gray-700 dark:text-gray-300">
+                    {{ $task->description }}
+                </p>
+                <div class="mt-3 flex items-center gap-x-2 text-sm text-gray-500 dark:text-gray-400">
+                <x-icon name="calendar-days" class="h-4 w-4" />
+                    <span>Prazo: {{ $task->due_date->format('d/m/Y') }}</span>
+                </div>
                 <x-slot:footer>
                     <div class="flex justify-end gap-x-2">
                         <x-button.circle

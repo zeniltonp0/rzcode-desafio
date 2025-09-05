@@ -21,7 +21,7 @@ class Logout extends Component
     {
         return <<<'HTML'
         <div>
-            <x-button lg icon="arrow-left-start-on-rectangle" class="btn-ghost" color="red" wire:click="logout"/>
+            <x-button lg icon="arrow-left-start-on-rectangle" text="Sair" class="btn-ghost" color="red" wire:click="logout"/>
         </div>
         HTML;
     }
