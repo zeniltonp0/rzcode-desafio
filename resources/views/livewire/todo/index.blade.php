@@ -21,5 +21,6 @@
         <livewire:todo.edit />
         <livewire:todo.delete />
         <livewire:todo.archive />
+        <livewire:todo.restore />
     </div>
 </div>

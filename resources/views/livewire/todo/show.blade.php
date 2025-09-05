@@ -33,6 +33,13 @@
                             flat md
                             wire:click="$dispatch('todo::archive', { id: {{ $task->id }} })"
                         />
+                        @else
+                        <x-button.circle
+                            icon="arrow-path"
+                            color="green"
+                            flat md
+                            wire:click="$dispatch('todo::restore', { id: {{ $task->id }} })"
+                        />
                     @endif
                     </div>
                 </x-slot:footer>
